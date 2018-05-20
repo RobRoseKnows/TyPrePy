@@ -37,6 +37,15 @@ You may need to use `sudo` depending on how your computer is configured. I **hig
 recommend using [PyEnv][3] or a similar environment manager however so you don't need
 to do that ever again.
 
+### Installation with Bootstrapper
+
+The source for TyPrePy is written with new Python type-hinting. During the build process
+for distribution, it runs itself in order to create backwards compatible code. The `pip`
+installer is built to use the pre-processed code during install.
+
+If you want to build it entirely from source for some reason, you should clone the repo
+and then use the `bootstrap/bootstrap.sh` script to build it from python 3.6+.
+
 ## Usage
 
 To use TyPrePy from the command line, simply run `typrepy <file> <destination>`.
@@ -45,7 +54,10 @@ unless you run with `--inplace` and include the destination as the same as the
 file location.
 
 You can also use TyPrePy as part of a build process (this repository does, for
-example).
+example). I highly advise against this unless you need to however, as the number
+of steps required to build your work is inversely proportional to the number of
+people who will use your work.
+
 
 [1]: https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code
 [2]: https://pypi.org/project/typing/
